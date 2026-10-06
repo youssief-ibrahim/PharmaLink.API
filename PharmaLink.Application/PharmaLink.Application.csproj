@@ -6,4 +6,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="IServices\" />
+    <Folder Include="MappingProfile\" />
+    <Folder Include="CommonResult\" />
+    <Folder Include="DTO%27s\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Params\" />
+    <Folder Include="Specifications\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PharmaLink.Domain\PharmaLink.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
