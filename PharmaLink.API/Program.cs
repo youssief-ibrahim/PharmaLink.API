@@ -1,11 +1,12 @@
 
+using System.Threading.Tasks;
 using PharmaLink.API.Extentions;
 
 namespace PharmaLink.API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +17,13 @@ namespace PharmaLink.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddApplicationServices(builder.Configuration);
+            builder.Services.AddDataProtection();
 
             var app = builder.Build();
-
+            #region seding data
+            await app.MigrateDatabaseAsync();
+            await app.SeedDataAsync();
+            #endregion
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

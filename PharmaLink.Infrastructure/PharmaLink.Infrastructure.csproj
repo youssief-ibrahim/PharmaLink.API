@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\DataSeed\" />
     <Folder Include="Email\" />
     <Folder Include="Evaluator\" />
     <Folder Include="Repositories\" />
