@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Email\" />
     <Folder Include="Evaluator\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
