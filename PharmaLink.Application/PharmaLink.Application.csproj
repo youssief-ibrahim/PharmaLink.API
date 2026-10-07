@@ -10,7 +10,6 @@
     <Folder Include="IServices\" />
     <Folder Include="MappingProfile\" />
     <Folder Include="DTO%27s\" />
-    <Folder Include="Exceptions\" />
     <Folder Include="Params\" />
     <Folder Include="Specifications\" />
     <Folder Include="Services\" />

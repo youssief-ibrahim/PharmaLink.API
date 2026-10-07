@@ -15,8 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="CustomMiddleWare\" />
     <Folder Include="Attribute\" />
     <Folder Include="Factory\" />
     <Folder Include="wwwroot\" />
