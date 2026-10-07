@@ -37,7 +37,8 @@ namespace PharmaLink.Infrastructure.Data.DataSeed
             {
                 await SeederAsync.SeedRolesAsync(roleManager);
                 await SeederAsync.SeedAdminUserAsync(userManager);
-                var enableDemoData = configuration.GetValue<bool>("Seeding:EnableDemoData");
+                //var enableDemoData = configuration.GetValue<bool>("Seeding:EnableDemoData");
+                var enableDemoData = bool.Parse(configuration["Seeding:EnableDemoData"] ?? "true");
                 if (enableDemoData)
                 {
                     await SeederAsync.SeedDummyUsersAsync(userManager);
