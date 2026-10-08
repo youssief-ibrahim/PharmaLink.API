@@ -2,10 +2,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PharmaLink.Application.IServices;
+using PharmaLink.Application.MappingProfile;
+using PharmaLink.Application.Services;
 using PharmaLink.Domain.Contracts;
 using PharmaLink.Domain.Entities.User;
 using PharmaLink.Infrastructure.Data.DataSeed;
 using PharmaLink.Infrastructure.Data.DbContext;
+using PharmaLink.Infrastructure.Repositories;
 
 namespace PharmaLink.API.Extentions
 {
@@ -40,16 +44,18 @@ namespace PharmaLink.API.Extentions
 
 
             #region Repository and UnitofWork
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             #endregion
 
 
             #region Servics
             services.AddScoped<IDataInitializer, DataInitializer>();
+            services.AddScoped<IPrescriptionRequestService, PrescriptionRequestService>();
             #endregion
 
 
             #region AutoMapper and Validation
-
+            services.AddAutoMapper(cfg => { }, typeof(PrescriptionRequestMapping).Assembly);
             #endregion
 
             return services;

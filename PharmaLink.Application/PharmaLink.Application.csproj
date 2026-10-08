@@ -7,16 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IServices\" />
-    <Folder Include="MappingProfile\" />
-    <Folder Include="DTO%27s\" />
     <Folder Include="Params\" />
     <Folder Include="Specifications\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PharmaLink.Domain\PharmaLink.Domain.csproj" />
+	  <PackageReference Include="AutoMapper" Version="16.2.0" />
+	  <ProjectReference Include="..\PharmaLink.Domain\PharmaLink.Domain.csproj" />
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>
