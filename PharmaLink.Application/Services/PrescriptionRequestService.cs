@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using PharmaLink.Application.Common;
 using PharmaLink.Application.DTO_s.PharmaRequests;
 using PharmaLink.Application.IServices;
+using PharmaLink.Application.Params;
 using PharmaLink.Domain.Contracts;
 using PharmaLink.Domain.Entities.Pharma_Requests;
 using PharmaLink.Domain.Entities.User;
@@ -75,6 +76,11 @@ namespace PharmaLink.Application.Services
           
             else return Error.Failure("Failed to create prescription request.", "An error occurred while creating the prescription request.");
             
+        }
+
+        public Task<PaginatedResult<PrescriptionRequestDto>> GetPatientRequestsAsync(int patientId, PrescriptionRequestQueryParams queryParams)
+        {
+            throw new NotImplementedException();
         }
     }
 }

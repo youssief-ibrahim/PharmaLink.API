@@ -13,8 +13,7 @@ namespace PharmaLink.Application.MappingProfile
     {
         public PrescriptionRequestMapping()
         {
-            // 1 - Mapping From Creation Dto to Entity (Input)
-
+            
             CreateMap<CreatePrescriptionRequestDto, PrescriptionRequestEntity>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.Ignore());
 
