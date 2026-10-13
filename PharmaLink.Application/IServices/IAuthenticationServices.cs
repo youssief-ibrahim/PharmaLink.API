@@ -9,7 +9,7 @@ using PharmaLink.Application.DTO_s.Sign_In_Up;
 
 namespace PharmaLink.Application.IServices
 {
-    public interface IAuthenticationService
+    public interface IAuthenticationServices
     {
         Task<Result<AuthModelDto>> LoginAsync(LoginDto LoginDTO);
         Task<Result<AuthModelDto>> RegisterAsync(RegisterDto RegisterDTO);

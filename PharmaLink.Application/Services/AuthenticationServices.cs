@@ -17,11 +17,11 @@ using PharmaLink.Domain.Enums.UserRoleEnums;
 
 namespace PharmaLink.Application.Services
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationServices : IAuthenticationServices
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IConfiguration config;
-        public AuthenticationService(UserManager<ApplicationUser> _userManager, IConfiguration _config)
+        public AuthenticationServices(UserManager<ApplicationUser> _userManager, IConfiguration _config)
         {
             userManager = _userManager;
             config = _config;

@@ -51,6 +51,7 @@ namespace PharmaLink.API.Extentions
             #region Servics
             services.AddScoped<IDataInitializer, DataInitializer>();
             services.AddScoped<IPrescriptionRequestService, PrescriptionRequestService>();
+            services.AddScoped<IAuthenticationServices, AuthenticationServices>();
             #endregion
 
 

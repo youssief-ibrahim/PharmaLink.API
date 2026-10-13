@@ -16,11 +16,14 @@ namespace PharmaLink.API
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
 
             builder.Services.AddApplicationServices(builder.Configuration);
 
             builder.Services.AddDataProtection();
+
+            builder.Services.AddJwtAuthentication(builder.Configuration);
+
+            builder.Services.AddSwaggerDocumentation();
 
             var app = builder.Build();
 
@@ -37,7 +40,7 @@ namespace PharmaLink.API
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
