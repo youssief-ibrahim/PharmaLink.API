@@ -8,6 +8,7 @@
 
   <ItemGroup>
 	  <PackageReference Include="AutoMapper" Version="16.2.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.30" />
 	  <ProjectReference Include="..\PharmaLink.Domain\PharmaLink.Domain.csproj" />
 	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>

@@ -9,6 +9,7 @@ using PharmaLink.Application.Common;
 using PharmaLink.Application.DTO_s.PharmaRequests;
 using PharmaLink.Application.IServices;
 using PharmaLink.Application.Params;
+using PharmaLink.Application.Specifications.PrescriptionReques;
 using PharmaLink.Domain.Contracts;
 using PharmaLink.Domain.Entities.Pharma_Requests;
 using PharmaLink.Domain.Entities.User;
@@ -78,9 +79,29 @@ namespace PharmaLink.Application.Services
             
         }
 
-        public Task<PaginatedResult<PrescriptionRequestDto>> GetPatientRequestsAsync(int patientId, PrescriptionRequestQueryParams queryParams)
+        public async Task<PaginatedResult<PrescriptionRequestDto>> GetPatientRequestsAsync(int patientId, PrescriptionRequestQueryParams queryParams)
         {
-            throw new NotImplementedException();
+            var requestRepo = unitOfWork.GetRepository<PrescriptionRequestEntity, int>();
+
+            var dataSpec = new PatientRequestWithAddressAndBidsSpec(patientId, queryParams);
+
+            var countSpec = new PatientRequestCountSpec(patientId, queryParams);
+
+            var requests =await requestRepo.GetAllWithSpecificationAsync(dataSpec);
+
+            var totalCount = await requestRepo.CountAsync(countSpec);
+
+            var mappedRequests =mapper.Map<IReadOnlyList<PrescriptionRequestDto>>(requests);
+
+            var result = new PaginatedResult<PrescriptionRequestDto>(
+               mappedRequests.Count,
+               queryParams.PageIndex,
+               totalCount,
+               mappedRequests);
+
+            return result;
         }
+
+
     }
 }
